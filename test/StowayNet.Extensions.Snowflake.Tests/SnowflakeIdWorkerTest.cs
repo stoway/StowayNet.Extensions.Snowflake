@@ -18,9 +18,12 @@ namespace StowayNet.Extensions.Snowflake.Tests
 
             var idWorker = provider.GetService<ISnowflakeIdWorker>();
 
-            var id1 = idWorker.NewId();
-            var id2 = idWorker.NewId();
-            Assert.NotEqual(id1, id2);
+            var id = new long[2];
+            Parallel.For(0, 1, (i) =>
+            {
+                id[i] = idWorker.NewId();
+            });
+            Assert.NotEqual(id[0], id[1]);
 
         }
     }
