@@ -24,7 +24,23 @@ namespace StowayNet.Extensions.Snowflake.Tests
                 id[i] = idWorker.NewId();
             });
             Assert.NotEqual(id[0], id[1]);
+        }
+        [Fact]
+        public void OptionTest()
+        {
+            ServiceCollection services = new ServiceCollection();
+            services.AddStowayNet();
+            var random = new Random(1);
+            var serverId = random.Next(1, 50);
+            services.Configure<SnowflakeIdOptions>(options =>
+            {
+                options.ServerId = serverId;
+            });
 
+            var provider = services.BuildServiceProvider();
+
+            var idWorker = provider.GetService<ISnowflakeIdWorker>();
+            Assert.Equal(serverId, idWorker.ServerId);
         }
     }
 }

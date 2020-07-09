@@ -60,10 +60,8 @@ namespace StowayNet.Extensions.Snowflake
                     throw new Exception($"Timestamp must be greater than the timestamp of the last ID generation. Refuse to generate id for {_lastTimestamp - timestamp} milliseconds");
                 }
 
-                //If the last generation time is the same as the current time, within the same millisecond
                 if (_lastTimestamp == timestamp)
                 {
-                    //Sequence self-increase, and sequenceMask and remove the high position
                     _sequence = (_sequence + 1) & SequenceMask;
                     if (_sequence == 0)
                     {
@@ -72,7 +70,7 @@ namespace StowayNet.Extensions.Snowflake
                 }
                 else
                 {
-                    _sequence = 0;//new Random().Next(10);
+                    _sequence = 0;
                 }
 
                 _lastTimestamp = timestamp;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,9 +9,19 @@ namespace StowayNet.Extensions.Snowflake
     internal class SnowflakeIdWorker : ISnowflakeIdWorker
     {
         private readonly IdWorker _idWorker;
-        public SnowflakeIdWorker()
+        private readonly IOptions<SnowflakeIdOptions> _options;
+
+        public int ServerId
         {
-            _idWorker = new IdWorker(1, 1);
+            get
+            {
+                return _options.Value.ServerId;
+            }
+        }
+        public SnowflakeIdWorker(IOptions<SnowflakeIdOptions> options)
+        {
+            _idWorker = new IdWorker(options.Value.ServerId, 1);
+            _options = options;
         }
 
         public Int64 NewId()

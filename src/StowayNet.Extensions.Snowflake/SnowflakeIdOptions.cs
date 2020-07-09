@@ -4,9 +4,8 @@ using System.Text;
 
 namespace StowayNet.Extensions.Snowflake
 {
-    public interface ISnowflakeIdWorker
+    public class SnowflakeIdOptions
     {
-        int ServerId { get; }
-        Int64 NewId();
+        public int ServerId { get; set; } = 1;
     }
 }
