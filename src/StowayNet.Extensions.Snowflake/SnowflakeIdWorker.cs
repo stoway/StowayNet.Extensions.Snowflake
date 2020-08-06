@@ -15,12 +15,12 @@ namespace StowayNet.Extensions.Snowflake
         {
             get
             {
-                return _options.Value.ServerId;
+                return _options.Value.ServerId ?? 1;
             }
         }
         public SnowflakeIdWorker(IOptions<SnowflakeIdOptions> options)
         {
-            _idWorker = new IdWorker(options.Value.ServerId, 1);
+            _idWorker = new IdWorker(options.Value.ServerId ?? 1, options.Value.DataCenterId ?? 1);
             _options = options;
         }
 

@@ -16,7 +16,7 @@ PM> Install-Package StowayNet.Extensions.Snowflake
 
 ### Configuration
 
-First,You need to config `StowayNet.Extensions.Snowflake` in your `Startup.cs`:
+First,You need to configure `StowayNet.Extensions.Snowflake` in your `Startup.cs`:
 ```c#
 ......
 using StowayNet;
@@ -32,6 +32,19 @@ public void ConfigureServices(IServiceCollection services)
 }
 
 ```
+you can aslo configure `StowayNet.Extensions.Snowflake.SnowflakeIdOptions` in your `startup.cs`:
+```c#
+public void ConfigureServices(IServiceCollection services)
+{
+    ......
+    services.AddStowayNet();
+    services.Configure<StowayNet.Extensions.Snowflake.SnowflakeIdOptions>(options =>
+    {
+        options.ServerId = serverId;
+    });
+    ......
+}
+```
 
 ### Sample
 
@@ -39,12 +52,12 @@ public void ConfigureServices(IServiceCollection services)
 ```c#
     using StowayNet.Extensions.Snowflake;
     
-    class TestJob
+    class TestSample
     {
-        private readonly ILogger<TestJob> _logger;
+        private readonly ILogger<TestSample> _logger;
         private readonly ISnowflakeIdWorker _idWorker;
 
-        public TestJob(ILogger<TestJob> logger, ISnowflakeIdWorker idWorker)
+        public TestSample(ILogger<TestSample> logger, ISnowflakeIdWorker idWorker)
         {
             _logger = logger;
             _idWorker = idWorker;

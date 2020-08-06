@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Version>3.1.3</Version>
+    <Authors>stoway</Authors>
+    <Company>stoway.net</Company>
+    <PackageProjectUrl>https://github.com/stoway/StowayNet.Extensions.Snowflake</PackageProjectUrl>
+    <PackageTags>.net core, snowflake</PackageTags>
+    <PackageReleaseNotes>Release notes are at https://github.com/stoway/StowayNet.Extensions.Snowflake/releases</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/stoway/StowayNet.Extensions.Snowflake</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

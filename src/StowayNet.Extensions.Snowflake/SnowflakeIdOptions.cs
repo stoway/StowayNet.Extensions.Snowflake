@@ -6,6 +6,8 @@ namespace StowayNet.Extensions.Snowflake
 {
     public class SnowflakeIdOptions
     {
-        public int ServerId { get; set; } = 1;
+        public int? ServerId { get; set; }
+
+        public int? DataCenterId { get; set; }
     }
 }
