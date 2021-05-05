@@ -1,7 +1,3 @@
-<p align="center">
-  <img height="80" src="https://s.gravatar.com/avatar/6275a0046443d6fb33421b52e503bc3e?s=140">
-</p>
-
 # StowayNet.Extensions.Snowflake
 StowayNet.Extensions.Snowflake is an extension of twitter's snowflake algorithm, which can support injection dependencies.
 
